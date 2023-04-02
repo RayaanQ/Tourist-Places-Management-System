@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourist Places Management System</title>
-    <link rel="stylesheet" href="../static/project.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='project.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="icon" href="../static/Images/travel-icon.png" type="image/png">
 </head>
@@ -17,9 +17,9 @@
             </div>
             <div class="menu">
                 <a href="#">Home</a>
-                <a href="gallery.html" target="_blank">Gallery</a>
-                <a href="aboutus.html" target="_blank">About</a>
-                <a href="contact.html" target="_blank">Contact</a>
+                <a href="{{ url_for('gallery') }}" target="_blank">Gallery</a>
+                <a href="{{ url_for('about') }}" target="_blank">About</a>
+                <a href="{{ url_for('contact') }}" target="_blank">Contact</a>
             </div>
         </nav>
             <main>                   <!--  To create the part below navbar   -->
@@ -27,8 +27,8 @@
                     <h3>Welcome <span id="red">To</span> <span id="green">U</span><span id="white">A</span><span id="black">E</span></h3>
                     <h1>DO COME & VISIT <span class="change_content"> </span></h1>
                     <p>"UAE once is not enough"</p>
-                    <a href="visa.html" target="_blank" class="btnone">Visa Enquiry</a>
-                    <a href="deals.html" target="_blank" class="btntwo">Deals & Packages</a>
+                    <a href="{{ url_for('visa') }}" target="_blank" class="btnone">Visa Enquiry</a>
+                    <a href="{{ url_for('deals') }}" target="_blank" class="btntwo">Deals & Packages</a>
                 </section>
             </main>
     </header>

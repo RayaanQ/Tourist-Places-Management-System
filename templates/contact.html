@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us Form</title>
-    <link rel="stylesheet" href="../static/contact.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='contact.css') }}">
     <link rel="icon" href="../static/Images/travel-icon.png" type="image/png">
 </head>
 <body>
@@ -17,46 +17,64 @@
         <div class="contact-box">
             <div class="contact-left">
                 <h3>Send your request</h3>
-                <form>
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
                     <div class="input-row">
                         <div class="input-group">
                             <label>First Name</label>
-                            <input type="text" placeholder="Tom">
+                            {{ form.firstname (placeholder="Tom")}}
+                            <!-- <input type="text" placeholder="Tom"> -->
                         </div>
                         <div class="input-group">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Holland">
+                            {{ form.lastname (placeholder="Holland")}}
+                            <!-- <input type="text" placeholder="Holland"> -->
                         </div>
                     </div>
                     <div class="input-row">
                         <div class="input-group">
                             <label>Email</label>
-                            <input type="email" placeholder="tomholland@gmail.com">
+                            {{ form.email (placeholder="tomholland@gmail.com")}}
+                            <!-- <input type="email" placeholder="tomholland@gmail.com"> -->
                         </div>
                         <div class="input-group">
                             <label>Phone</label>
-                            <input type="text" placeholder="9833465319">
+                            {{ form.number (placeholder="9833465319")}}
+                            <!-- <input type="text" placeholder="9833465319"> -->
                         </div>
                     </div>
                     <div class="input-row">
                         <div class="input-group">
                             <label>Residence</label>
-                            <input type="text" placeholder="India">
+                            {{ form.residence (placeholder="India")}}
+                            <!-- <input type="text" placeholder="India"> -->
                         </div>
                         <div class="input-group">
                             <label>Reason</label>
-                                <input type="text" list="browsers" name="browser" id="browser" placeholder="I would like to:">
-                                <datalist id="browsers">
-                                    <option value="Make an enquiry" >Make an enquiry</option>
+                                <!-- <input type="text" list="entry" name="browser" id="browser" autocomplete="off" placeholder="I would like to:" > -->
+                                <!-- {{form.reason(list="id_datalist")}}
+                                    <datalist id="id_datalist">
+                                    {% for e in entry %}
+                                    <option value={{ e }}>
+                                    {% endfor %}
+                                    </datalist> -->
+                                {{form.reason(list="entry")}}
+                                <datalist id="entry" >
+                                    {% for e in entry %}
+                                    <option value="{{ e }}">
+                                    {% endfor %}
+                                    <!-- <option value="Make an enquiry" >Make an enquiry</option>
                                     <option value="Give feedback and suggestions">Give feedback and suggestions</option>
                                     <option value="Request for business and meeting information">Request for business and meeting information</option>
                                     <option value="Give compliments">Give compliments</option>
-                                    <option value="Submit a complaint">Submit a complaint</option>
+                                    <option value="Submit a complaint">Submit a complaint</option> -->
                                 </datalist>
                         </div>
                     </div>
                     <label>Message</label>
-                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    {{ form.message (placeholder="Your Message")}}
+                    <!-- <textarea rows="5" >{{ form.message (placeholder="Your Message")}}</textarea> -->
+
                     <button type="submit">Submit</button>
                 </form>
             </div>
